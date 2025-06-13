@@ -1,10 +1,12 @@
-
 import React, { useState, useCallback } from 'react';
-import { Header } from './components/Header';
-import { InputSection } from './components/InputSection';
-import { OutputSection } from './components/OutputSection';
-import { ErrorMessage } from './components/ErrorMessage';
-import { analyzeCommentsWithGemini } from './services/geminiService';
+// --- MUDANÇAS AQUI ---
+// Removidos os caminhos './components/' e './services/'
+import { Header } from './Header'; 
+import { InputSection } from './InputSection';
+import { OutputSection } from './OutputSection';
+import { ErrorMessage } from './ErrorMessage';
+import { analyzeCommentsWithGemini } from './geminiService'; 
+// --------------------
 import type { AnalysisResult } from './types';
 
 const App: React.FC = () => {
@@ -39,9 +41,9 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-gray-dark via-purple-900/30 to-brand-gray-dark text-brand-text p-4 sm:p-6 md:p-8">
-      <div className="container mx-auto max-w-6xl"> {/* Increased max-width for a more spacious feel */}
+      <div className="container mx-auto max-w-6xl">
         <Header />
-        <main className="mt-6"> {/* Added margin-top to main */}
+        <main className="mt-6">
           <InputSection
             rawComments={rawComments}
             setRawComments={setRawComments}
@@ -51,8 +53,8 @@ const App: React.FC = () => {
           {error && <ErrorMessage message={error} />}
           <OutputSection analysisResult={analysisResult} isLoading={isLoading} />
         </main>
-        <footer className="text-center mt-16 mb-8 py-4 text-brand-text-secondary text-xs border-t border-brand-gray-light"> {/* Refined footer */}
-          <p>&copy; {new Date().getFullYear()} Analisador de Comentários Virais. Powered by Gemini.</p>
+        <footer className="text-center mt-16 mb-8 py-4 text-brand-text-secondary text-xs border-t border-brand-gray-light">
+          <p>© {new Date().getFullYear()} Analisador de Comentários Virais. Powered by Gemini.</p>
           <p>MVP Infinito 💸</p>
         </footer>
       </div>
